@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRIFY Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 250, 205, 0.8));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Glassmorphic Container */
+        .container {
+            background: rgba(2, 2, 2, 0.835);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 350px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Logo */
+        .logo img {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        /* Headings */
+        h2 {
+            color: #FFD700;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        /* Input Fields */
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: 0.3s;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            border-color: #FFA500;
+            box-shadow: 0 0 8px rgba(255, 165, 0, 0.5);
+        }
+
+        /* Button */
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #FFD700;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #FFA500;
+            box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to QRIFY</h2>
+        <p>Scan Fast, Live Smart!</p>
+        <form id="loginForm">
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <input type="tel" id="number" placeholder="Enter your number" required>
+            <button type="submit"><a href="https://qrifysolutions.netlify.app/" style="text-decoration: none; color: rgb(0, 0, 0);">Start Ordering</a></button>
+    
+        </form>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            let name = document.getElementById('name').value.trim();
+            let number = document.getElementById('number').value.trim();
+
+            if (name === "" || number === "") {
+                alert("Please enter both your name and number.");
+                return;
+            }
+
+            let button = document.querySelector("button");
+            button.innerHTML = "Loading...";
+            button.style.opacity = "0.7";
+            button.disabled = true;
+
+            setTimeout(() => {
+                window.location.href = "https://qrifysolutions.netlify.app/";
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
